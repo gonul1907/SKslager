@@ -74,6 +74,11 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
   .grid-3{grid-template-columns:repeat(2,1fr)}
   .nav-list{display:none;flex-direction:column;background:#fff;position:absolute;right:0;top:100%;padding:0.6rem;border:1px solid #eee;border-radius:6px}
   .nav-toggle{display:inline-block;background:transparent;border:none;padding:0.4rem 0.6rem}
+
+  /* If the header itself uses the dark variant but the mobile nav drops down on a white background,
+     force the nav links to a readable dark color and keep the dropdown background white. */
+  .site-header.dark .nav-list{background:#fff}
+  .site-header.dark .nav-list a{color:var(--text)}
 }
 
 @media (max-width:480px){

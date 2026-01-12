@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Foto's - SK Slager</title>
+  <title>Producten - SK Slager</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -11,12 +11,12 @@
   <header class="site-header">
     <div class="container header-inner">
   <a class="logo" href="index.html">SK Slager</a>
-      <nav class="main-nav" aria-label="Hoofdnavigatie">
+  <nav class="main-nav" aria-label="Hoofdnavigatie">
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
         <ul id="nav-list" class="nav-list">
           <li><a href="index.html">Home</a></li>
           <li><a href="ons-winkel.html">Ons winkel</a></li>
-          <li><a href="fotos.html">Foto's</a></li>
+          <li><a href="fotos.html">Producten</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -25,18 +25,75 @@
 
   <main class="container">
     <section class="page-hero">
-      <h1>Foto's</h1>
-      <p>Een selectie van beelden uit onze winkel en werkplaats.</p>
+      <h1>Onze producten</h1>
+      <p>Een overzicht van ons aanbod — vers, lokaal en met vakmanschap bereid. Klik op een categorie voor meer details.</p>
     </section>
 
-    <section class="photo-grid">
+    <section class="product-list">
       <div class="grid-3">
-        <img src="images/hero.webp" alt="Vitrine met vlees">
-        <img src="images/photo2.jpg" alt="Vitrine">
-        <img src="images/photo3.jpg" alt="Worstmakerij">
-        <img src="images/photo4.jpg" alt="Schnitzels">
-        <img src="images/photo5.jpg" alt="Toonbank">
-        <img src="images/photo6.jpg" alt="BBQ pakket">
+        <article class="card">
+          <img src="images/shop1.jpg" alt="Rundvlees selectie">
+          <h3>Rund</h3>
+          <p>Ongestoord geselecteerd rundvlees voor biefstuk, stoof en gehakt.</p>
+          <ul>
+            <li>Biefstukken</li>
+            <li>Stoofvlees</li>
+            <li>Gehakt (mager/half-om-half)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <img src="images/shop2.jpg" alt="Varkensvlees selectie">
+          <h3>Varken</h3>
+          <p>Van koteletjes tot pulled pork — geschikt voor dagelijks gebruik en BBQ.</p>
+          <ul>
+            <li>Koteletjes</li>
+            <li>Spareribs</li>
+            <li>Procureur & karbonaad</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <img src="images/shop3.jpg" alt="Kip en gevogelte">
+          <h3>Kip & gevogelte</h3>
+          <p>Vers geslacht en ideaal voor gezonde gerechten of de oven.</p>
+          <ul>
+            <li>Hele kippen</li>
+            <li>Poot/borst</li>
+            <li>Gevulde opties</li>
+          </ul>
+        </article>
+      </div>
+
+      <div style="margin-top:1rem" class="grid-3">
+        <article class="card">
+          <img src="images/hero.webp" alt="Worst en specialiteiten">
+          <h3>Worsten & specialiteiten</h3>
+          <p>Onze huisgemaakte worsten en specialiteiten, volgens traditionele recepten.</p>
+          <ul>
+            <li>Droge worst</li>
+            <li>Verse braadworst</li>
+            <li>Gehakt speciaal</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <img src="images/shop1.jpg" alt="BBQ pakketten">
+          <h3>BBQ & maaltijdboxen</h3>
+          <p>Handige pakketten voor de barbecue of avond-maaltijd; op bestelling samen te stellen.</p>
+          <ul>
+            <li>BBQ-pakket voor 2/4/6 personen</li>
+            <li>Geprepareerde marinades</li>
+            <li>Advies voor bereiding</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <img src="images/shop2.jpg" alt="Ambachtelijke producten">
+          <h3>Speciale bestellingen</h3>
+          <p>Groot bestellingen, speciale sneden of feestelijke vleespakketten? Bel of kom langs.</p>
+          <p><a class="btn" href="contact.html">Vraag een offerte</a></p>
+        </article>
       </div>
     </section>
   </main>

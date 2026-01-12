@@ -56,6 +56,10 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 .contact-inner{display:flex;align-items:center;justify-content:space-between}
 
 .page-hero{padding:2rem 0}
+
+/* Intro accent used on store page: subtle left border and spacing to draw attention */
+.page-hero .intro-accent{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));padding:0.6rem 0.8rem;border-left:4px solid var(--accent);border-radius:6px;margin-bottom:0.6rem}
+.page-hero .intro-accent strong{display:block;margin-bottom:0.2rem;font-size:1.05rem}
 .shop-info{padding:1rem 0}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 

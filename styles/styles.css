@@ -81,3 +81,15 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
   .grid-3 img{height:140px}
   .single-gallery img{height:200px;max-width:100%}
 }
+
+/* Header variant: dark header with white logo and red search input */
+.site-header.dark{background:var(--primary);border-bottom:1px solid rgba(255,255,255,0.08)}
+.site-header.dark .logo{color:#fff}
+.site-header.dark .nav-list a{color:#fff}
+.site-header.dark .nav-toggle{color:#fff}
+.search-input{background:#b71c1c;color:#fff;border:1px solid rgba(255,255,255,0.15);padding:0.4rem 0.6rem;border-radius:6px;margin-left:0.8rem}
+.search-input::placeholder{color:rgba(255,255,255,0.85)}
+
+@media (max-width:800px){
+  .search-input{display:none}
+}

@@ -77,18 +77,19 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-  <p>&copy; <span id="year"></span> SK Slager — Alle rechten voorbehouden</p>
-      </div>
-      <nav aria-label="Voettekst navigatie">
-        <a href="index.html">Home</a>
-        <a href="ons-winkel.html">Ons winkel</a>
-        <a href="contact.html">Contact</a>
+    <div class="container header-inner">
+  <a class="logo" href="index.html">SK Slager</a>
+      <nav class="main-nav" aria-label="Hoofdnavigatie">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ons-winkel.html">Ons winkel</a></li>
+          <li><a href="producten.html">Producten</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
+      <input class="search-input" type="search" placeholder="Zoek..." aria-label="Zoek">
     </div>
-  </footer>
-
   <script src="scripts/script.js"></script>
 </body>
 </html>

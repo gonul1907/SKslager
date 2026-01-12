@@ -1,0 +1,70 @@
+/* Basic responsive styles for the SK Slager prototype */
+:root{
+  --primary:#8B1E2D;
+  --accent:#D88B2B;
+  --bg:#F7F5F2;
+  --text:#222222;
+  --muted:#666666;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.site-header{background:#fff;border-bottom:1px solid #eee}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
+.logo{font-family:Montserrat, sans-serif;font-weight:700;color:var(--primary);text-decoration:none;font-size:1.2rem}
+.main-nav{position:relative}
+.nav-list{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
+.nav-list a{color:var(--text);text-decoration:none}
+.nav-toggle{display:none}
+
+.hero{background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url('../images/hero.webp');background-size:cover;background-position:center;color:#fff;padding:6rem 0;min-height:420px;display:flex;align-items:center}
+.hero-inner{max-width:800px}
+.hero h1{font-family:Montserrat, sans-serif;font-size:2.2rem;margin:0 0 0.5rem}
+.hero p{margin:0 0 1rem}
+.btn{display:inline-block;padding:0.5rem 1rem;border-radius:6px;background:#fff;color:var(--text);text-decoration:none;border:1px solid #ddd}
+.btn.primary{background:var(--primary);color:#fff;border:none}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.6);color:#fff}
+
+.about{padding:2rem 0}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:center}
+.about-photo img{width:100%;border-radius:6px}
+.highlights{list-style:circle;margin-top:0.5rem;color:var(--muted)}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem}
+.grid-3 img{width:100%;height:200px;object-fit:cover;border-radius:6px}
+.see-more{text-align:center;margin-top:0.8rem}
+
+.single-gallery{display:flex;justify-content:center}
+.single-gallery img{width:100%;max-width:880px;height:420px;object-fit:cover;border-radius:6px}
+
+.contact-strip{background:#fff;padding:1.2rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.contact-inner{display:flex;align-items:center;justify-content:space-between}
+
+.page-hero{padding:2rem 0}
+.shop-info{padding:1rem 0}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+.photo-grid{padding:1rem 0}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem 0}
+.contact-card{background:#fff;padding:1rem;border-radius:6px}
+.contact-form label{display:block;margin-bottom:0.6rem;font-size:0.95rem}
+.contact-form input,.contact-form textarea{width:100%;padding:0.6rem;border:1px solid #ddd;border-radius:4px}
+
+.map-embed iframe{width:100%;height:320px;border-radius:6px}
+
+.site-footer{background:#fff;border-top:1px solid #eee;padding:1rem 0;margin-top:2rem}
+.footer-inner{display:flex;align-items:center;justify-content:space-between}
+
+@media (max-width:800px){
+  .about-grid,.info-grid{grid-template-columns:1fr}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .nav-list{display:none;flex-direction:column;background:#fff;position:absolute;right:0;top:100%;padding:0.6rem;border:1px solid #eee;border-radius:6px}
+  .nav-toggle{display:inline-block;background:transparent;border:none;padding:0.4rem 0.6rem}
+}
+
+@media (max-width:480px){
+  .hero h1{font-size:1.6rem}
+  .grid-3 img{height:140px}
+  .single-gallery img{height:200px;max-width:100%}
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact - SK Slager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+  <a class="logo" href="index.html">SK Slager</a>
+      <nav class="main-nav" aria-label="Hoofdnavigatie">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ons-winkel.html">Ons winkel</a></li>
+          <li><a href="fotos.html">Foto's</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1>Contact</h1>
+      <p>Vragen? Bel of stuur een bericht — we reageren snel.</p>
+    </section>
+
+    <section class="contact-grid">
+      <div class="contact-card">
+        <h2>Contactgegevens</h2>
+        <p><strong>Adres:</strong> Laakweg 126, 2521 SC Den Haag</p>
+        <p><strong>Telefoon:</strong> <a href="tel:+31626802527">06 26802527</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@slager.nl">info@slager.nl</a></p>
+        <h3>Openingstijden</h3>
+        <ul>
+          <li>Ma - Za: 08:30 - 20:00</li>
+          <li>Zo: 09:00 - 19:00</li>
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <h2>Stuur ons een bericht</h2>
+        <form class="contact-form" aria-label="Contactformulier">
+          <label>Naam
+            <input type="text" name="name" placeholder="Je naam">
+          </label>
+          <label>E-mail
+            <input type="email" name="email" placeholder="voorbeeld@e-mail.nl">
+          </label>
+          <label>Bericht
+            <textarea name="message" rows="5" placeholder="Je vraag of bericht"></textarea>
+          </label>
+          <p><button class="btn primary" type="button" onclick="alert('Formulier demo — niet verzonden in prototype')">Verstuur</button></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="map container">
+      <h2>Onze locatie</h2>
+      <div class="map-embed">
+        <!-- Ingesloten Google Maps met het juiste adres: Laakweg 126, 2521 SC Den Haag -->
+        <iframe title="SK Slager - Laakweg 126, Den Haag" src="https://www.google.com/maps?q=Laakweg+126,+2521+SC+Den+Haag&output=embed" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+  <p>&copy; <span id="year-4"></span> SK Slager</p>
+      </div>
+      <nav aria-label="Voettekst navigatie">
+        <a href="index.html">Home</a>
+        <a href="ons-winkel.html">Ons winkel</a>
+        <a href="fotos.html">Foto's</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vergelijk bewerkingen - SK Slager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;padding:1rem}
+    .compare-card{background:#fff;padding:0.6rem;border-radius:6px;text-align:center}
+    .compare-card img{width:100%;height:140px;object-fit:cover;border-radius:4px}
+    .compare-card button{margin-top:0.5rem}
+    .note{max-width:1100px;margin:0.5rem auto;padding:0 1rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">SK Slager</a>
+      <nav class="main-nav" aria-label="Hoofdnavigatie">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ons-winkel.html">Ons winkel</a></li>
+          <li><a href="fotos.html">Foto's</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="compare.html">Vergelijk bewerkingen</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero container">
+      <h1>Vergelijk verwerkte versies</h1>
+      <p class="note">Klik op een afbeelding om die direct als hero-achtergrond te gebruiken of download de versies uit de map <code>images/</code>.</p>
+    </section>
+
+    <section class="container">
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4>Origineel</h4>
+          <img src="images/hero.webp" alt="Origineel">
+          <div><button onclick="setHero('images/hero.webp')" class="btn">Gebruik als hero</button></div>
+        </div>
+
+        <div class="compare-card">
+          <h4>Sharpen 1</h4>
+          <img src="images/hero_sharp.webp" alt="Sharpen 1">
+          <div><button onclick="setHero('images/hero_sharp.webp')" class="btn">Gebruik als hero</button></div>
+        </div>
+
+        <div class="compare-card">
+          <h4>Sharpen 2 (sterk)</h4>
+          <img src="images/hero_sharp2.webp" alt="Sharpen 2">
+          <div><button onclick="setHero('images/hero_sharp2.webp')" class="btn">Gebruik als hero</button></div>
+        </div>
+
+        <div class="compare-card">
+          <h4>Deconv (Richardson-Lucy)</h4>
+          <img src="images/hero_deconv_rl.webp" alt="RL">
+          <div><button onclick="setHero('images/hero_deconv_rl.webp')" class="btn">Gebruik als hero</button></div>
+        </div>
+
+        <div class="compare-card">
+          <h4>Deconv (Wiener)</h4>
+          <img src="images/hero_deconv_wiener.webp" alt="Wiener">
+          <div><button onclick="setHero('images/hero_deconv_wiener.webp')" class="btn">Gebruik als hero</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <p>&copy; <span id="year-compare"></span> SK Slager</p>
+      </div>
+      <nav aria-label="Voettekst navigatie">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="scripts/script.js"></script>
+  <script>
+    // utility to change the hero background on the homepage without reloading files
+    function setHero(path){
+      // Update hero on this page if present
+      var hero = document.querySelector('.hero');
+      if(hero){
+        hero.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url("'+path+'")';
+      }
+      // Also update homepage .hero if user navigates back (store in session)
+      sessionStorage.setItem('preferredHero', path);
+      alert('Hero bijgewerkt naar: ' + path + '\n(Deze instelling blijft in deze sessie. Ga naar Home om te controleren.)');
+    }
+
+    // apply preferred hero if set
+    document.addEventListener('DOMContentLoaded', function(){
+      var p = sessionStorage.getItem('preferredHero');
+      if(p){
+        var homeHero = document.querySelector('.hero');
+        if(homeHero) homeHero.style.backgroundImage = 'linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url("'+p+'")';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -6,7 +6,7 @@ Belangrijke bestanden:
 - `index.html` — homepage
 - `ons-winkel.html` — over de winkel
 - `producten.html` — productoverzicht (Producten)
-- `producten.html` — productoverzicht (Producten) + leveranciers & herkomst
+- `producten.html` — productoverzicht (Producten)
 - `contact.html` — contact + formulier (demo)
 - `styles/styles.css` — stylesheet
 - `scripts/script.js` — kleine interactiviteit

@@ -122,6 +122,12 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
   .search-input{width:160px}
 }
 
+/* Ensure mobile dropdown links are readable when header uses .dark (override placed after the dark header rules) */
+@media (max-width:800px){
+  .site-header.dark .nav-list{background:#fff}
+  .site-header.dark .nav-list a{color:var(--text)}
+}
+
 @media (max-width:480px){
   /* make the search input full-width, rounded and easily tappable on phones */
   .search-input{width:100%;max-width:none;border-radius:999px;padding:0.65rem 0.9rem;background:#fff;border:1px solid rgba(0,0,0,0.06)}

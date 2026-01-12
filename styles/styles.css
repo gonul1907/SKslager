@@ -19,12 +19,13 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 .nav-list a{color:var(--text);text-decoration:none}
 .nav-toggle{display:none}
 
-.hero{background-image:linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),url('../images/hero.webp');background-size:cover;background-position:center;color:#fff;padding:6rem 0;min-height:420px;display:flex;align-items:center}
+.hero{background-image:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(139,30,45,0.12)),url('../images/hero.webp');background-size:cover;background-position:center;color:#fff;padding:6rem 0;min-height:420px;display:flex;align-items:center}
 .hero-inner{max-width:800px}
 .hero h1{font-family:Montserrat, sans-serif;font-size:2.2rem;margin:0 0 0.5rem}
 .hero p{margin:0 0 1rem}
 .btn{display:inline-block;padding:0.5rem 1rem;border-radius:6px;background:#fff;color:var(--text);text-decoration:none;border:1px solid #ddd}
-.btn.primary{background:var(--primary);color:#fff;border:none}
+.btn.primary{background:linear-gradient(90deg,var(--primary), #6f1520);color:#fff;border:none;box-shadow:0 8px 22px rgba(139,30,45,0.12);transition:transform .12s ease, box-shadow .12s ease}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(139,30,45,0.18)}
 .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.6);color:#fff}
 
 .about{padding:2rem 0}
@@ -37,10 +38,21 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 .see-more{text-align:center;margin-top:0.8rem}
 
 /* Card styling for product overviews (no images variant) */
-.card{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);min-height:160px;display:flex;flex-direction:column;justify-content:space-between}
+.card{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);min-height:160px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;height:6px;width:100%;background:linear-gradient(90deg,var(--accent), #b86b2a)}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.08);transition:transform .18s ease, box-shadow .18s ease}
 .card h3{margin:0 0 0.5rem;font-size:1.05rem}
 .card p{margin:0 0 0.6rem;color:var(--muted)}
 .card ul{margin:0;padding-left:1.2rem;color:var(--muted)}
+
+/* Category-specific accent bars for product cards */
+.card--rund::before{background:linear-gradient(90deg,#7a1218,#9f2a2f)}
+.card--kip::before{background:linear-gradient(90deg,#c58a2b,#d88b2b)}
+.card--bbq::before{background:linear-gradient(90deg,#8b3a1f,#b86b2a)}
+.card--speciale::before{background:linear-gradient(90deg,#5a5a5a,#8a8a8a)}
+
+/* small badge (if used) */
+.badge{display:inline-block;padding:0.18rem 0.5rem;border-radius:999px;font-size:0.78rem;color:#fff;background:var(--accent)}
 
 /* Small banner for pages using the hero as a compact banner */
 .page-banner{width:100%;height:120px;background-size:cover;background-position:center;border-radius:8px;margin:1rem 0}

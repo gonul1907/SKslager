@@ -14,6 +14,12 @@
   <header class="site-header dark">
     <div class="container header-inner">
   <a class="logo" href="index.html">SK Slager</a>
+      <!-- Search form (accessible) -->
+      <form class="search-container" role="search" action="producten.html" method="get">
+        <label for="site-search" class="sr-only">Zoek producten</label>
+        <input id="site-search" name="q" class="search-input" type="search" placeholder="Zoek producten..." aria-label="Zoek producten">
+        <button class="btn" type="submit" aria-label="Zoeken">🔍</button>
+      </form>
       <nav class="main-nav" aria-label="Hoofdnavigatie">
         <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
         <ul id="nav-list" class="nav-list">

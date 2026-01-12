@@ -72,6 +72,17 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 /* Intro accent used on store page: subtle left border and spacing to draw attention */
 .page-hero .intro-accent{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));padding:0.6rem 0.8rem;border-left:4px solid var(--accent);border-radius:6px;margin-bottom:0.6rem}
 .page-hero .intro-accent strong{display:block;margin-bottom:0.2rem;font-size:1.05rem}
+
+/* Store-specific accenting (applies only when .store-hero/.store-shop classes are present) */
+.page-hero.store-hero{background:linear-gradient(90deg, rgba(139,30,45,0.03), rgba(255,255,255,0));border-radius:8px;padding:2.4rem;margin-bottom:0.8rem}
+.page-hero.store-hero h1{color:var(--primary);position:relative}
+.page-hero.store-hero h1::after{content:'';display:block;height:4px;width:72px;background:var(--primary);border-radius:4px;margin-top:0.6rem;opacity:0.95}
+.page-hero.store-hero p{color:#3a1b1d}
+.page-hero.store-hero .intro-accent{border-left-color:var(--primary);background:linear-gradient(180deg, rgba(216,139,43,0.06), rgba(255,255,255,0));}
+
+.shop-info.store-shop{background:linear-gradient(180deg, rgba(139,30,45,0.03), rgba(255,255,255,0));padding:1rem;border-radius:8px}
+.shop-info.store-shop h2{color:var(--primary)}
+.shop-info.store-shop p{color:#3a1b1d}
 .shop-info{padding:1rem 0}
 .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 

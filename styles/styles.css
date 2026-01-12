@@ -87,3 +87,26 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 .site-header.dark .logo{color:#fff}
 .site-header.dark .nav-list a{color:#fff}
 .site-header.dark .nav-toggle{color:#fff}
+
+/* Search input styling - base + responsive tweaks for phone */
+.search-input{border:1px solid #ddd;padding:0.45rem 0.6rem;border-radius:6px;width:220px;transition:all .15s;background:#fff;color:var(--text)}
+.search-input:focus{outline:none;box-shadow:0 4px 12px rgba(0,0,0,0.08);border-color:var(--primary)}
+
+/* container helper if search is wrapped */
+.search-container{display:flex;align-items:center;gap:0.4rem}
+
+@media (max-width:800px){
+  .search-input{width:160px}
+}
+
+@media (max-width:480px){
+  /* make the search input full-width, rounded and easily tappable on phones */
+  .search-input{width:100%;max-width:none;border-radius:999px;padding:0.65rem 0.9rem;background:#fff;border:1px solid rgba(0,0,0,0.06)}
+
+  /* ensure header stacks neatly and the search occupies a full row */
+  .site-header .header-inner{flex-direction:column;align-items:stretch;gap:0.5rem}
+  .site-header .search-container{width:100%;padding:0.25rem 0}
+
+  /* keep nav list clean when toggled */
+  .nav-list{position:static;border:none;padding:0;box-shadow:none}
+}

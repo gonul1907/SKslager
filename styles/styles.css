@@ -1,32 +1,43 @@
 /* Basic responsive styles for the SK Slagerij prototype */
 :root{
+  /* Design tokens */
   --primary:#8B1E2D;
   --accent:#D88B2B;
   --bg:#F7F5F2;
   --text:#222222;
   --muted:#666666;
+
+  --radius:12px;
+  --radius-sm:8px;
+  --shadow-1: 0 6px 18px rgba(17,17,17,0.06);
+  --shadow-2: 0 14px 40px rgba(17,17,17,0.08);
+  --space-xs:6px;
+  --space-sm:12px;
+  --space-md:20px;
+  --space-lg:32px;
+  --container:1200px;
 }
 *{box-sizing:border-box}
 /* visually hidden helper for accessible labels */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
-.container{max-width:1100px;margin:0 auto;padding:1rem}
+.container{max-width:var(--container);margin:0 auto;padding:1rem}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
 .site-header{background:#fff;border-bottom:1px solid #eee}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
-.logo{font-family:Montserrat, sans-serif;font-weight:700;color:var(--primary);text-decoration:none;font-size:1.2rem}
+.logo{font-family:Montserrat, sans-serif;font-weight:700;color:var(--primary);text-decoration:none;font-size:clamp(1.05rem, 1.8vw, 1.4rem)}
 .main-nav{position:relative}
 .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
 .nav-list a{color:var(--text);text-decoration:none}
 .nav-toggle{display:none}
 
-.hero{background-image:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(139,30,45,0.12)),url('../images/hero.webp');background-size:cover;background-position:center;color:#fff;padding:6rem 0;min-height:420px;display:flex;align-items:center}
-.hero-inner{max-width:800px}
-.hero h1{font-family:Montserrat, sans-serif;font-size:2.2rem;margin:0 0 0.5rem}
-.hero p{margin:0 0 1rem}
-.btn{display:inline-block;padding:0.5rem 1rem;border-radius:6px;background:#fff;color:var(--text);text-decoration:none;border:1px solid #ddd}
-.btn.primary{background:linear-gradient(90deg,var(--primary), #6f1520);color:#fff;border:none;box-shadow:0 8px 22px rgba(139,30,45,0.12);transition:transform .12s ease, box-shadow .12s ease}
-.btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(139,30,45,0.18)}
-.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.6);color:#fff}
+.hero{background-image:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(139,30,45,0.12)),url('../images/hero.webp');background-size:cover;background-position:center;color:#fff;padding:clamp(2.4rem, 6vw, 6rem) 0;min-height:420px;display:flex;align-items:center}
+.hero-inner{max-width:900px}
+.hero h1{font-family:Montserrat, sans-serif;font-size:clamp(1.6rem, 4.8vw, 3rem);margin:0 0 0.5rem;line-height:1.02}
+.hero p{margin:0 0 1rem;font-size:clamp(0.95rem, 1.8vw, 1.1rem)}
+.btn{display:inline-block;padding:0.6rem 1.1rem;border-radius:999px;background:#fff;color:var(--text);text-decoration:none;border:1px solid rgba(0,0,0,0.06);box-shadow:var(--shadow-1);transition:transform .16s ease, box-shadow .16s ease, background .12s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.btn.primary{background:linear-gradient(90deg,var(--primary), #6f1520);color:#fff;border:none;box-shadow:0 10px 28px rgba(139,30,45,0.12)}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
 
 .about{padding:2rem 0}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;align-items:center}
@@ -38,9 +49,9 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 .see-more{text-align:center;margin-top:0.8rem}
 
 /* Card styling for product overviews (no images variant) */
-.card{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06);min-height:160px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.card{background:#fff;padding:1.1rem;border-radius:var(--radius);box-shadow:var(--shadow-1);min-height:160px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:transform .18s ease, box-shadow .18s ease}
 .card::before{content:"";position:absolute;left:0;top:0;height:6px;width:100%;background:linear-gradient(90deg,var(--accent), #b86b2a)}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.08);transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-2)}
 .card h3{margin:0 0 0.5rem;font-size:1.05rem}
 .card p{margin:0 0 0.6rem;color:var(--muted)}
 .card ul{margin:0;padding-left:1.2rem;color:var(--muted)}

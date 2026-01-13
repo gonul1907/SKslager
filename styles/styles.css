@@ -166,5 +166,25 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 }
 
 /* Debug banner to show current deployed commit - visible on all pages (non-destructive) */
-.debug-banner{position:fixed;left:12px;bottom:12px;background:rgba(255,255,255,0.95);color:var(--text);padding:0.5rem 0.8rem;border-radius:10px;font-size:0.9rem;box-shadow:0 8px 20px rgba(17,17,17,0.06);z-index:1200;border:1px solid rgba(0,0,0,0.04)}
-.debug-banner code{font-weight:600;background:transparent;padding:0 0.25rem;color:#6f1520}
+/* Mobile / hamburger styles */
+.nav-toggle{display:none;background:transparent;border:none;padding:0.4rem 0.6rem;border-radius:8px;color:var(--text);cursor:pointer}
+.nav-toggle .hamburger{display:inline-block;width:28px;height:20px;position:relative}
+.nav-toggle .hamburger span{position:absolute;height:2px;width:100%;left:0;background:currentColor;border-radius:2px;transition:transform .25s ease, opacity .2s ease, top .25s ease}
+.nav-toggle .hamburger span:nth-child(1){top:0}
+.nav-toggle .hamburger span:nth-child(2){top:9px}
+.nav-toggle .hamburger span:nth-child(3){top:18px}
+.nav-toggle.open .hamburger span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.nav-toggle.open .hamburger span:nth-child(2){opacity:0}
+.nav-toggle.open .hamburger span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+/* mobile drawer/backdrop */
+.nav-list{transition:transform .32s cubic-bezier(.2,.9,.2,1),opacity .18s ease}
+.nav-list.hidden{transform:translateX(100%);opacity:0;pointer-events:none}
+.nav-list.visible{transform:translateX(0);opacity:1;pointer-events:auto}
+.nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.35);opacity:0;pointer-events:none;transition:opacity .22s ease;z-index:75}
+.nav-backdrop.visible{opacity:1;pointer-events:auto}
+
+@media (max-width:800px){
+  .nav-toggle{display:inline-block}
+  .nav-list{display:flex;flex-direction:column;background:#fff;position:fixed;right:0;top:0;height:100vh;padding:1.2rem;border-left:1px solid rgba(0,0,0,0.04);border-radius:0;min-width:220px;max-width:320px;width:80vw;box-shadow:0 14px 40px rgba(17,17,17,0.12);z-index:80;transform:translateX(100%)}
+}

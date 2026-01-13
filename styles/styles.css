@@ -164,3 +164,7 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
   /* keep nav list clean when toggled */
   .nav-list{position:static;border:none;padding:0;box-shadow:none}
 }
+
+/* Debug banner to show current deployed commit - visible on all pages (non-destructive) */
+.debug-banner{position:fixed;left:12px;bottom:12px;background:rgba(255,255,255,0.95);color:var(--text);padding:0.5rem 0.8rem;border-radius:10px;font-size:0.9rem;box-shadow:0 8px 20px rgba(17,17,17,0.06);z-index:1200;border:1px solid rgba(0,0,0,0.04)}
+.debug-banner code{font-weight:600;background:transparent;padding:0 0.25rem;color:#6f1520}

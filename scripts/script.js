@@ -21,17 +21,57 @@ document.addEventListener('DOMContentLoaded', function(){
   // initialize nav lists as hidden on mobile by default
   navLists.forEach(function(n){ if(!n.classList.contains('visible')) n.classList.add('hidden'); });
 
+  // Focus-trap helpers and open/close handlers for the mobile drawer
+  var previousFocus = null;
+  var focusHandler = null;
+  var activeTrap = null;
+
+  function getFocusable(container){
+    if(!container) return [];
+    return Array.from(container.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'))
+      .filter(function(el){ return !el.hasAttribute('disabled') && el.offsetParent !== null; });
+  }
+
+  function openNav(target, toggle){
+    previousFocus = document.activeElement;
+    toggle.setAttribute('aria-expanded','true');
+    toggle.classList.add('open');
+    target.classList.remove('hidden'); target.classList.add('visible');
+    backdrop.classList.add('visible');
+    activeTrap = target;
+    var focusables = getFocusable(target);
+    if(focusables.length) focusables[0].focus(); else toggle.focus();
+
+    focusHandler = function(e){
+      if(e.key === 'Escape' || e.key === 'Esc'){
+        e.preventDefault(); closeNav(); return;
+      }
+      if(e.key === 'Tab'){
+        var f = getFocusable(activeTrap);
+        if(f.length === 0){ e.preventDefault(); return; }
+        var first = f[0], last = f[f.length - 1];
+        if(e.shiftKey){ if(document.activeElement === first){ e.preventDefault(); last.focus(); } }
+        else { if(document.activeElement === last){ e.preventDefault(); first.focus(); } }
+      }
+    };
+    document.addEventListener('keydown', focusHandler);
+  }
+
+  function closeNav(){
+    navLists.forEach(function(list){ if(list.classList.contains('visible')){ list.classList.remove('visible'); list.classList.add('hidden'); }});
+    document.querySelectorAll('.nav-toggle.open').forEach(function(b){ b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
+    backdrop.classList.remove('visible');
+    if(focusHandler){ document.removeEventListener('keydown', focusHandler); focusHandler = null; }
+    if(previousFocus && previousFocus.focus) previousFocus.focus();
+    previousFocus = null; activeTrap = null;
+  }
+
   toggles.forEach(function(btn){
     btn.addEventListener('click', function(){
       var target = document.getElementById(this.getAttribute('aria-controls')) || navLists[0];
-      var expanded = this.getAttribute('aria-expanded') === 'true';
-      this.setAttribute('aria-expanded', (!expanded).toString());
-      this.classList.toggle('open');
-      if(target.classList.contains('visible')){
-        target.classList.remove('visible'); target.classList.add('hidden'); backdrop.classList.remove('visible');
-      } else {
-        target.classList.remove('hidden'); target.classList.add('visible'); backdrop.classList.add('visible');
-      }
+      var isOpen = target.classList.contains('visible');
+      if(isOpen){ closeNav(); }
+      else { openNav(target, this); }
     });
   });
 

@@ -1,6 +1,6 @@
-# SK SK Slager - prototype
+# SK SK Slagerij - prototype
 
-Kleine statische prototype-website voor SK Slager. Deze versie is gemaakt als voorbeeld zonder online bestellingen. Gebruik de bestanden in de root om te bekijken of verder uit te breiden.
+Kleine statische prototype-website voor SK Slagerij. Deze versie is gemaakt als voorbeeld zonder online bestellingen. Gebruik de bestanden in de root om te bekijken of verder uit te breiden.
 
 Belangrijke bestanden:
 - `index.html` — homepage

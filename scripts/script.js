@@ -78,10 +78,23 @@ document.addEventListener('DOMContentLoaded', function(){
   // clicking a nav link closes any open drawers (mobile behaviour)
   try{
     document.querySelectorAll('.nav-list a').forEach(function(link){
-      link.addEventListener('click', function(){
+      link.addEventListener('click', function(e){
+        // If the link is an in-page anchor, focus the target section for accessibility
+        var href = this.getAttribute('href') || '';
+        var isAnchor = href.indexOf('#') === 0 || (href.indexOf(window.location.pathname) === 0 && href.indexOf('#') !== -1);
         navLists.forEach(function(list){ if(list.classList.contains('visible')){ list.classList.remove('visible'); list.classList.add('hidden'); }});
         document.querySelectorAll('.nav-toggle.open').forEach(function(b){ b.classList.remove('open'); b.setAttribute('aria-expanded','false'); });
         backdrop.classList.remove('visible');
+        if(isAnchor){
+          var id = href.split('#')[1];
+          if(id){
+            var target = document.getElementById(id);
+            if(target){
+              // small timeout to allow scroll to finish, then focus
+              setTimeout(function(){ target.setAttribute('tabindex','-1'); target.focus(); }, 250);
+            }
+          }
+        }
       });
     });
   }catch(e){}
@@ -108,6 +121,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
   // If user previously selected a preferred hero, clear it so the site uses the original by default
   try { sessionStorage.removeItem('preferredHero'); } catch(e) { /* ignore */ }
+
+  // If the page loads with a hash, focus that section for keyboard users
+  try{
+    if(window.location.hash){
+      var id = window.location.hash.replace('#','');
+      var t = document.getElementById(id);
+      if(t){ setTimeout(function(){ t.setAttribute('tabindex','-1'); t.focus(); }, 350); }
+    }
+  }catch(e){}
 
 });
 

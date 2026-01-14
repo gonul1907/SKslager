@@ -24,13 +24,12 @@
           </span>
           <span class="sr-only">Menu</span>
         </button>
-  <ul id="nav-list" class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="onze-winkel.html">Onze winkel</a></li>
-          <li><a href="producten.html">Producten</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          
-        </ul>
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#onze-winkel">Onze winkel</a></li>
+            <li><a href="#producten">Producten</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
       </nav>
     </div>
   </header>
@@ -41,8 +40,8 @@
         <h1>Ambachtelijke slagerij dicht bij jou</h1>
         <p>Dagvers, lokaal en met liefde bereid. Kom langs of bel voor een bestelling.</p>
         <p class="hero-cta">
-          <a class="btn primary" href="onze-winkel.html">Onze winkel</a>
-          <a class="btn ghost" href="contact.html">Contact</a>
+          <a class="btn primary" href="#onze-winkel">Onze winkel</a>
+          <a class="btn ghost" href="#contact">Contact</a>
         </p>
       </div>
     </section>
@@ -65,9 +64,105 @@
     <section class="gallery-preview container">
   <h2>Onze vitrine</h2>
       <div class="single-gallery">
-  <a href="producten.html"><img src="images/hero.webp" alt="Vitrine met vlees"></a>
+  <a href="#producten"><img src="images/hero.webp" alt="Vitrine met vlees"></a>
       </div>
-  <p class="see-more"><a class="btn" href="producten.html">Bekijk ons aanbod</a></p>
+  <p class="see-more"><a class="btn" href="#producten">Bekijk ons aanbod</a></p>
+    </section>
+
+    <!-- Onze winkel (from onze-winkel.html) -->
+    <section id="onze-winkel" class="page-hero container store-hero">
+      <h2>Onze winkel</h2>
+      <p class="intro-accent"><strong>In onze winkel staat ambacht centraal.</strong> Met vakmanschap en passie bereiden wij dagelijks verse producten van hoge kwaliteit. Kom langs en proef ons assortiment.</p>
+    </section>
+
+    <section id="onze-winkel-info" class="shop-info container store-shop">
+      <div class="info-grid">
+        <div>
+          <h3>Onze aanpak</h3>
+          <p>We selecteren zorgvuldig vlees van lokale leveranciers. Kwaliteit en transparantie staan bij ons voorop.</p>
+          <h4>Specialiteiten</h4>
+          <p>In onze winkel vind je een zorgvuldig geselecteerd assortiment. Enkele productgroepen die je bij ons kunt vinden:</p>
+          <ul>
+            <li><strong>Rund</strong> — biefstukken, stoofvlees en gehakt (mager/half-om-half)</li>
+            <li><strong>Kip & gevogelte</strong> — hele kippen, poot/borst en gevulde opties</li>
+            <li><strong>BBQ & maaltijdboxen</strong> — samengestelde pakketten en marinades op bestelling</li>
+            <li><strong>Speciale bestellingen</strong> — feestelijke vleespakketten en speciale sneden op aanvraag</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Producten (from producten.html) -->
+    <section id="producten" class="product-list container">
+      <h2>Onze producten</h2>
+      <p>Een overzicht van ons aanbod — vers, lokaal en met vakmanschap bereid.</p>
+      <div class="grid-3">
+        <article class="card card--rund">
+          <h3>Rund</h3>
+          <p>Ongestoord geselecteerd rundvlees voor biefstuk, stoof en gehakt.</p>
+          <ul>
+            <li>Biefstukken</li>
+            <li>Stoofvlees</li>
+            <li>Gehakt (mager/half-om-half)</li>
+          </ul>
+        </article>
+
+        <article class="card card--kip">
+          <h3>Kip & gevogelte</h3>
+          <p>Vers geslacht en ideaal voor gezonde gerechten of de oven.</p>
+          <ul>
+            <li>Hele kippen</li>
+            <li>Poot/borst</li>
+            <li>Gevulde opties</li>
+          </ul>
+        </article>
+
+        <article class="card card--bbq">
+          <h3>BBQ & maaltijdboxen</h3>
+          <p>Handige pakketten voor de barbecue of avond-maaltijd; op bestelling samen te stellen.</p>
+          <ul>
+            <li>BBQ-pakket voor 2/4/6 personen</li>
+            <li>Geprepareerde marinades</li>
+            <li>Advies voor bereiding</li>
+          </ul>
+        </article>
+
+        <article class="card card--speciale">
+          <h3>Speciale bestellingen</h3>
+          <p>Groot bestellingen, speciale sneden of feestelijke vleespakketten? Bel of kom langs.</p>
+          <p><a class="btn" href="#contact">Vraag een offerte</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact (from contact.html) -->
+    <section id="contact" class="container contact-grid">
+      <div class="contact-card">
+        <h2>Contactgegevens</h2>
+        <p><strong>Adres:</strong> Laakweg 126, 2521 SC Den Haag</p>
+        <p><strong>Telefoon:</strong> <a href="tel:+31626802527">06 26802527</a></p>
+        <p><strong>E-mail:</strong> <a href="mailto:info@slager.nl">info@slager.nl</a></p>
+        <h3>Openingstijden</h3>
+        <ul>
+          <li>Ma - Za: 08:30 - 20:00</li>
+          <li>Zo: 09:00 - 19:00</li>
+        </ul>
+      </div>
+      <div class="contact-card">
+        <h2>Stuur ons een bericht</h2>
+        <form class="contact-form" aria-label="Contactformulier">
+          <label>Naam
+            <input type="text" name="name" placeholder="Je naam">
+          </label>
+          <label>E-mail
+            <input type="email" name="email" placeholder="voorbeeld@e-mail.nl">
+          </label>
+          <label>Bericht
+            <textarea name="message" rows="5" placeholder="Je vraag of bericht"></textarea>
+          </label>
+          <p><button class="btn primary" type="button" onclick="alert('Formulier demo — niet verzonden in prototype')">Verstuur</button></p>
+        </form>
+      </div>
     </section>
 
     <section class="contact-strip">

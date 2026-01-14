@@ -25,12 +25,7 @@
           </span>
           <span class="sr-only">Menu</span>
         </button>
-          <ul id="nav-list" class="nav-list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#onze-winkel">Onze winkel</a></li>
-            <li><a href="#producten">Producten</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <ul id="nav-list" class="nav-list"></ul>
       </nav>
     </div>
   </header>
@@ -45,7 +40,7 @@
   </div>
 
   <main>
-    <section class="hero">
+  <section class="hero" data-parallax="bg" data-parallax-speed="0.32">
       <div class="hero-inner container">
         <h1>Ambachtelijke slagerij dicht bij jou</h1>
         <p>Dagvers, lokaal en met liefde bereid. Kom langs of bel voor een bestelling.</p>
@@ -57,40 +52,52 @@
     </section>
 
     <section class="about container" id="about">
-      <div class="about-grid">
-        <div>
-          <h2>Over onze slager</h2>
-          <p>We zijn een familiebedrijf met een passie voor vlees van hoge kwaliteit. Onze medewerkers adviseren je graag over bereiding en recepten.</p>
-          <ul class="highlights">
-            <li>Dagverse producten</li>
-            <li>Lokale leveranciers</li>
-            <li>Vakkundig personeel</li>
-          </ul>
+      <div class="text-bleed">
+        <div class="content">
+          <div class="about-grid">
+            <div>
+              <h2>Over onze slager</h2>
+              <p>We zijn een familiebedrijf met een passie voor vlees van hoge kwaliteit. Onze medewerkers adviseren je graag over bereiding en recepten.</p>
+              <ul class="highlights">
+                <li>Dagverse producten</li>
+                <li>Lokale leveranciers</li>
+                <li>Vakkundig personeel</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        
       </div>
     </section>
 
     <section class="gallery-preview container">
-  <h2>Onze vitrine</h2>
-      <div class="single-gallery">
-  <a href="#producten">
-    <picture>
-      <!-- Responsive-ready picture element: currently using the existing hero.webp.
-           If you later add resized variants (hero-800.webp, hero-1200.webp) they
-           can be included in srcset for better performance. -->
-      <source type="image/webp" srcset="images/hero.webp" sizes="100vw">
-      <img src="images/hero.webp" alt="Vitrine met vlees" loading="lazy" decoding="async">
-    </picture>
-  </a>
+      <div class="text-bleed">
+        <div class="content">
+          <h2>Onze vitrine</h2>
+        </div>
       </div>
-  <p class="see-more"><a class="btn" href="#producten">Bekijk ons aanbod</a></p>
+      <div class="single-gallery">
+        <a href="#producten">
+          <picture>
+            <source type="image/webp" srcset="images/hero.webp" sizes="100vw">
+            <img src="images/hero.webp" alt="Vitrine met vlees" loading="lazy" decoding="async" data-parallax="img" data-parallax-speed="0.18">
+          </picture>
+        </a>
+      </div>
+      <div class="text-bleed">
+        <div class="content">
+          <p class="see-more"><a class="btn" href="#producten">Bekijk ons aanbod</a></p>
+        </div>
+      </div>
     </section>
 
     <!-- Services: short feature grid (mirrors example layout intent) -->
     <section class="services container" aria-label="Onze diensten">
-      <h2>Onze diensten</h2>
-      <p class="muted">Van dagverse producten tot BBQ-pakketten en speciale bestellingen — we helpen graag.</p>
+      <div class="text-bleed">
+        <div class="content">
+          <h2>Onze diensten</h2>
+          <p class="muted">Van dagverse producten tot BBQ-pakketten en speciale bestellingen — we helpen graag.</p>
+        </div>
+      </div>
       <div class="services-grid">
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
@@ -135,73 +142,156 @@
 
     <!-- Onze winkel (from onze-winkel.html) -->
     <section id="onze-winkel" class="page-hero container store-hero">
-      <h2>Onze winkel</h2>
-      <p class="intro-accent"><strong>In onze winkel staat ambacht centraal.</strong> Met vakmanschap en passie bereiden wij dagelijks verse producten van hoge kwaliteit. Kom langs en proef ons assortiment.</p>
+      <div class="text-bleed">
+        <div class="content">
+          <h2>Onze winkel</h2>
+          <p class="intro-accent"><strong>In onze winkel staat ambacht centraal.</strong> Met vakmanschap en passie bereiden wij dagelijks verse producten van hoge kwaliteit. Kom langs en proef ons assortiment.</p>
+        </div>
+      </div>
     </section>
 
     <section id="onze-winkel-info" class="shop-info container store-shop">
       <div class="info-grid">
         <div>
           <h3>Onze aanpak</h3>
-          <p>We selecteren zorgvuldig vlees van lokale leveranciers. Kwaliteit en transparantie staan bij ons voorop.</p>
-          <h4>Specialiteiten</h4>
-          <p>In onze winkel vind je een zorgvuldig geselecteerd assortiment. Enkele productgroepen die je bij ons kunt vinden:</p>
-          <ul>
-            <li><strong>Rund</strong> — biefstukken, stoofvlees en gehakt (mager/half-om-half)</li>
-            <li><strong>Kip & gevogelte</strong> — hele kippen, poot/borst en gevulde opties</li>
-            <li><strong>BBQ & maaltijdboxen</strong> — samengestelde pakketten en marinades op bestelling</li>
-            <li><strong>Speciale bestellingen</strong> — feestelijke vleespakketten en speciale sneden op aanvraag</li>
-          </ul>
+          <p>We werken met een duidelijk stappenplan zodat je altijd verzekerd bent van smaak, versheid en service — van selectie tot bereiding en nazorg.</p>
+
+          <div class="approach-grid">
+            <article class="approach-card">
+              <div class="approach-icon" aria-hidden="true">
+                <!-- Selectie icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#8B1E2D" d="M12 2l3 6 6 .5-4.5 4 1 6L12 16l-5.5 2.5 1-6L3 8.5 9 8 12 2z"/></svg>
+              </div>
+              <div class="approach-body">
+                <h4>Selectie</h4>
+                <p>We kiezen vlees van vertrouwde, lokale leveranciers en controleren kwaliteit bij ontvangst.</p>
+              </div>
+            </article>
+
+            <article class="approach-card">
+              <div class="approach-icon" aria-hidden="true">
+                <!-- Snijden icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#D88B2B" d="M2 21l20-9L2 3v6l12 3-12 3v6z"/></svg>
+              </div>
+              <div class="approach-body">
+                <h4>Snijden & bereiden</h4>
+                <p>Vakkundig snijden en voorbereiden in onze werkplaats — klaar voor verkoop of bereiding thuis.</p>
+              </div>
+            </article>
+
+            <article class="approach-card">
+              <div class="approach-icon" aria-hidden="true">
+                <!-- Advies icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#8B1E2D" d="M12 2a7 7 0 0 1 7 7c0 4-7 12-7 12s-7-8-7-12a7 7 0 0 1 7-7z"/></svg>
+              </div>
+              <div class="approach-body">
+                <h4>Advies & service</h4>
+                <p>Persoonlijk advies over bereiding, marinades en porties — zodat je het beste resultaat krijgt.</p>
+              </div>
+            </article>
+
+            <article class="approach-card">
+              <div class="approach-icon" aria-hidden="true">
+                <!-- Afhalen / levering icon -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#D88B2B" d="M3 6h18v2H3V6zm0 4h12v10H3V10zm14 0h4v6h-4v-6z"/></svg>
+              </div>
+              <div class="approach-body">
+                <h4>Afhaling & levering</h4>
+                <p>Snel afhalen in de winkel of leveringen voor grotere bestellingen en catering.</p>
+              </div>
+            </article>
+          </div>
+
+          <p style="margin-top:0.75rem"><a class="btn primary" href="#contact">Vraag advies of bestel</a></p>
         </div>
       </div>
     </section>
 
     <!-- Producten (from producten.html) -->
     <section id="producten" class="product-list container">
-      <h2>Onze producten</h2>
-      <p>Een overzicht van ons aanbod — vers, lokaal en met vakmanschap bereid.</p>
+      <div class="text-bleed">
+        <div class="content">
+          <h2>Onze producten</h2>
+          <p>Een overzicht van ons aanbod — vers, lokaal en met vakmanschap bereid.</p>
+        </div>
+      </div>
       <div class="grid-3">
-        <article class="card card--rund">
-          <h3>Rund</h3>
-          <p>Ongestoord geselecteerd rundvlees voor biefstuk, stoof en gehakt.</p>
-          <ul>
-            <li>Biefstukken</li>
-            <li>Stoofvlees</li>
-            <li>Gehakt (mager/half-om-half)</li>
-          </ul>
+        <article class="card product-card card--rund">
+          <figure class="product-media">
+            <img src="images/rund.jpg.png" alt="Rundvlees - biefstukken" loading="lazy" decoding="async">
+            <figcaption class="product-badge">Vanaf</figcaption>
+          </figure>
+          <div class="product-body">
+            <h3>Rund</h3>
+            <p class="muted">Topkwaliteit rundvlees — van malse biefstukken tot stoof en ambachtelijk gehakt.</p>
+            <ul>
+              <li>Biefstukken</li>
+              <li>Stoofvlees</li>
+              <li>Gehakt (mager/half-om-half)</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="#contact">Bestel</a>
+          </div>
         </article>
 
-        <article class="card card--kip">
-          <h3>Kip & gevogelte</h3>
-          <p>Vers geslacht en ideaal voor gezonde gerechten of de oven.</p>
-          <ul>
-            <li>Hele kippen</li>
-            <li>Poot/borst</li>
-            <li>Gevulde opties</li>
-          </ul>
+        <article class="card product-card card--kip">
+          <figure class="product-media">
+            <img src="images/kip.jpg.png" alt="Kip & gevogelte" loading="lazy" decoding="async">
+            <figcaption class="product-badge">Populair</figcaption>
+          </figure>
+          <div class="product-body">
+            <h3>Kip & gevogelte</h3>
+            <p class="muted">Vers en smakelijk — hele kippen, poot/borst en speciale gevulde opties voor feestelijke maaltijden.</p>
+            <ul>
+              <li>Hele kippen</li>
+              <li>Poot/borst</li>
+              <li>Gevulde opties</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="#contact">Bestel</a>
+          </div>
         </article>
 
-        <article class="card card--bbq">
-          <h3>BBQ & maaltijdboxen</h3>
-          <p>Handige pakketten voor de barbecue of avond-maaltijd; op bestelling samen te stellen.</p>
-          <ul>
-            <li>BBQ-pakket voor 2/4/6 personen</li>
-            <li>Geprepareerde marinades</li>
-            <li>Advies voor bereiding</li>
-          </ul>
+        <article class="card product-card card--bbq">
+          <figure class="product-media">
+            <img src="images/BBQ.jpg.png" alt="BBQ pakket" loading="lazy" decoding="async">
+            <figcaption class="product-badge">BBQ</figcaption>
+          </figure>
+          <div class="product-body">
+            <h3>BBQ & maaltijdboxen</h3>
+            <p class="muted">Complete pakketten met selectie vlees en marinades — gemakkelijk te bestellen en ideaal voor buiten.</p>
+            <ul>
+              <li>BBQ-pakket voor 2/4/6 personen</li>
+              <li>Geprepareerde marinades</li>
+              <li>Advies voor bereiding</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="#contact">Bestel</a>
+          </div>
         </article>
 
-        <article class="card card--speciale">
-          <h3>Speciale bestellingen</h3>
-          <p>Groot bestellingen, speciale sneden of feestelijke vleespakketten? Bel of kom langs.</p>
-          <p><a class="btn" href="#contact">Vraag een offerte</a></p>
+        <article class="card product-card card--speciale">
+          <figure class="product-media">
+            <img src="images/speciaal.jpg.png" alt="Speciale bestellingen" loading="lazy" decoding="async">
+            <figcaption class="product-badge">Op aanvraag</figcaption>
+          </figure>
+          <div class="product-body">
+            <h3>Speciale bestellingen</h3>
+            <p class="muted">Feestelijke vleespakketten of bijzondere sneden — samen stellen we het perfecte pakket voor jouw gelegenheid.</p>
+          </div>
+          <div class="card-footer">
+            <a class="btn" href="#contact">Vraag offerte</a>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- Contact (from contact.html) -->
-    <section id="contact" class="container contact-grid">
-      <div class="contact-card">
+  <section id="contact" class="container contact-grid">
+      <div class="contact-card contact-card--primary">
         <h2>Contactgegevens</h2>
         <p><strong>Adres:</strong> Laakweg 126, 2521 SC Den Haag</p>
         <p><strong>Telefoon:</strong> <a href="tel:+31626802527">06 26802527</a></p>
@@ -229,18 +319,19 @@
       </div>
     </section>
 
-    <section class="contact-strip">
-      <div class="container contact-inner">
-        <div>
-          <h3>Kom langs of bel ons</h3>
-          <p><strong>Adres:</strong> Laakweg 126, 2521 SC Den Haag</p>
-          <p><strong>Tel:</strong> <a href="tel:+31626802527">06 26802527</a></p>
-        </div>
-        <div>
-          <a class="btn primary" href="contact.html">Contact & route</a>
+    <section class="map container">
+      <div class="text-bleed">
+        <div class="content">
+          <h2>Onze locatie</h2>
         </div>
       </div>
+      <div class="map-embed">
+        <!-- Embedded Google Maps copied from contact page -->
+        <iframe title="SK Slagerij - Laakweg 126, Den Haag" src="https://www.google.com/maps?q=Laakweg+126,+2521+SC+Den+Haag&output=embed" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </section>
+
+    <!-- contact-strip removed per user request -->
   </main>
 
   <footer class="site-footer">

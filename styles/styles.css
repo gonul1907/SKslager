@@ -3,7 +3,9 @@
   /* Design tokens */
   --primary:#8B1E2D;
   --accent:#D88B2B;
-  --bg:#F7F5F2;
+  --bg:#FFF7F5; /* warmer page background */
+  --bg-alt-1:#FFF3E6; /* warm peach band */
+  --bg-alt-2:#FFFDF6; /* pale cream */
   --text:#222222;
   --muted:#666666;
 
@@ -16,12 +18,16 @@
   --space-md:20px;
   --space-lg:32px;
   --container:1140px; /* tightened slightly to match example proportions */
+  --bg-soft: rgba(255,240,235,0.6);
+  --bg-accent-soft: rgba(216,139,43,0.12);
+  --bg-primary-soft: rgba(139,30,45,0.10);
+  --band-sep: rgba(17,17,17,0.06);
 }
 *{box-sizing:border-box}
 /* visually hidden helper for accessible labels */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .container{max-width:var(--container);margin:0 auto;padding:1rem}
-.html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+.html,body{height:100%;margin:0;font-family:Poppins, Inter, system-ui, Arial, Helvetica, sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
 
 /* Use Poppins for headings to better match the reference site's geometric headings */
 h1,h2,h3,h4,h5{font-family:Poppins, Montserrat, Inter, system-ui, sans-serif}
@@ -32,7 +38,7 @@ html{scroll-behavior:smooth}
 section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 .site-header{background:#fff;border-bottom:1px solid #eee}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 0}
-.logo{font-family:Montserrat, sans-serif;font-weight:700;color:var(--primary);text-decoration:none;font-size:clamp(1.05rem, 1.8vw, 1.4rem)}
+.logo{font-family:Poppins, Montserrat, sans-serif;font-weight:700;color:var(--primary);text-decoration:none;font-size:clamp(1.05rem, 1.8vw, 1.4rem)}
 .main-nav{position:relative}
 .nav-list{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
 .nav-list a{color:var(--text);text-decoration:none}
@@ -42,6 +48,13 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 .hero-inner{max-width:940px}
 .hero h1{font-family:Poppins, Montserrat, sans-serif;font-size:clamp(2rem, 6.5vw, 3.6rem);margin:0 0 0.6rem;line-height:1.02;font-weight:600}
 .hero p{margin:0 0 1.1rem;font-size:clamp(1rem, 2.1vw, 1.15rem);opacity:0.95}
+
+/* Increase weight for hero and about text for better readability */
+.hero h1{font-weight:700}
+.hero p{font-weight:600}
+.about h2{font-weight:700}
+.about p{font-weight:600}
+.about .highlights li{font-weight:600}
 
 /* Stronger hero CTA and overlay for modern look */
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.22));pointer-events:none;border-radius:0}
@@ -77,6 +90,22 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 .card p{margin:0 0 0.6rem;color:var(--muted)}
 .card ul{margin:0;padding-left:1.2rem;color:var(--muted)}
 
+/* Product card specific improvements */
+.product-card{padding:0;overflow:hidden}
+.product-media{position:relative;display:block;height:160px;overflow:hidden}
+.product-media img{width:100%;height:100%;object-fit:cover;display:block}
+.product-badge{position:absolute;left:12px;top:12px;background:rgba(0,0,0,0.6);color:#fff;padding:0.25rem 0.6rem;border-radius:999px;font-size:0.82rem}
+.product-body{padding:1rem}
+.card-footer{display:flex;align-items:center;justify-content:flex-end;padding:0.75rem 1rem 1rem;border-top:1px solid rgba(17,17,17,0.03);background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96))}
+.card-footer .price{font-weight:700;color:var(--primary);font-size:0.98rem}
+.card-footer .btn{margin-left:0.6rem}
+.product-card .btn{padding:0.5rem 0.9rem;border-radius:999px}
+
+@media (max-width:480px){
+  .product-media{height:120px}
+  .card-footer{padding:0.6rem 0.75rem}
+}
+
 /* Category-specific accent bars for product cards */
 .card--rund::before{background:linear-gradient(90deg,#7a1218,#9f2a2f)}
 .card--kip::before{background:linear-gradient(90deg,#c58a2b,#d88b2b)}
@@ -104,6 +133,49 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
   .single-gallery img{height:220px}
 }
 
+/* Utility to make a text block visually edge-to-edge while keeping inner text constrained */
+.text-bleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:1.25rem 0;position:relative;overflow:visible;isolation:isolate}
+.text-bleed .content{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+/* Parallax helpers */
+[data-parallax]{will-change:transform}
+.hero{background-position:center center;background-repeat:no-repeat}
+.single-gallery{overflow:hidden}
+.single-gallery img{transition:transform .12s linear}
+
+/* Section header/background bands — visually lift each section's heading/lead */
+/* Slightly stronger background tints for better separation (tweak 1) */
+#about .text-bleed{background:linear-gradient(180deg,var(--bg-primary-soft), rgba(255,255,255,0));}
+.gallery-preview .text-bleed{background:var(--bg-alt-2)}
+/* Services: make band more prominent and use white text (tweak 2) */
+.services .text-bleed{background:var(--primary);color:#fff}
+.services .text-bleed .content p,.services .text-bleed .content .muted{color:rgba(255,255,255,0.92)}
+.services .text-bleed .content h2{color:#fff}
+
+#onze-winkel .text-bleed{background:linear-gradient(180deg,var(--bg-primary-soft), rgba(255,255,255,0));}
+#producten .text-bleed{background:var(--bg-alt-1)}
+#contact .text-bleed{background:linear-gradient(180deg, rgba(255,245,240,0.6), rgba(255,255,255,0));}
+
+.text-bleed{padding-top:1.25rem;padding-bottom:1.25rem}
+.text-bleed{
+  /* smooth visual transitions between bands */
+  transition:background-color .36s ease, background .36s ease, color .24s ease;
+  /* soft fade at top and bottom to make band edges less harsh */
+  box-shadow: inset 0 14px 22px -14px rgba(17,17,17,0.05), inset 0 -14px 22px -14px rgba(17,17,17,0.05);
+}
+
+/* gentle gradient separators using pseudo elements (keeps the visual line but softer) */
+.text-bleed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--band-sep),transparent);}
+.text-bleed::before{content:"";position:absolute;left:0;right:0;top:-1px;height:36px;pointer-events:none;background:linear-gradient(to bottom, rgba(17,17,17,0.05), rgba(17,17,17,0));}
+.text-bleed::after{box-shadow:0 1px 0 rgba(255,255,255,0.02) inset}
+
+/* Slightly different top/bottom fades for the dark services band so the fade reads as lighter */
+.services .text-bleed::before,.services .text-bleed::after{background:linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0));box-shadow:none}
+
+/* Animate background changes on key section-like elements for smoother visual updates */
+.contact-strip, .site-footer, .top-strip{transition:background-color .36s ease, color .24s ease}
+.text-bleed .content h1,.text-bleed .content h2{margin-top:0;margin-bottom:0.5rem}
+
 /* Top strip (small contact / ordering band) */
 .top-strip{background:var(--primary);padding:0.45rem 0;color:#fff}
 .top-strip-inner{display:flex;align-items:center;justify-content:space-between;gap:0.75rem}
@@ -123,13 +195,27 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 .service-body h3{margin:0;font-size:1.05rem}
 .service-body p{margin:0;color:var(--muted);font-size:0.95rem}
 
+/* Approach grid for 'Onze aanpak' */
+.approach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:0.6rem}
+.approach-card{background:linear-gradient(180deg,#fff, #fff);padding:0.9rem;border-radius:10px;box-shadow:var(--shadow-1);display:flex;gap:0.9rem;align-items:flex-start;transition:transform .16s ease, box-shadow .16s ease}
+.approach-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-2)}
+.approach-icon{width:56px;height:56px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 56px;background:linear-gradient(90deg,var(--accent),#b86b2a);color:#fff}
+.approach-icon svg{width:28px;height:28px;display:block}
+.approach-body h4{margin:0 0 0.25rem;font-size:1.05rem;color:var(--primary)}
+.approach-body p{margin:0;color:var(--muted);font-size:0.95rem}
+
+@media (max-width:480px){
+  .approach-card{padding:0.8rem}
+  .approach-icon{width:48px;height:48px;flex:0 0 48px}
+}
+
 @media (min-width:900px){
   /* Large screens: align icon left, text to the right in service cards */
   .service-card{flex-direction:row}
   .service-card .service-body{display:block}
 }
 
-.contact-strip{background:#fff;padding:1.2rem 0;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.contact-strip{background:var(--bg-alt-1);padding:1.2rem 0;border-top:1px solid var(--band-sep);border-bottom:1px solid var(--band-sep)}
 .contact-inner{display:flex;align-items:center;justify-content:space-between}
 
 .page-hero{padding:2rem 0}
@@ -155,12 +241,38 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem 0}
 .contact-card{background:#fff;padding:1rem;border-radius:6px}
+
+/* Highlighted contact card with red background that visually connects to the site */
+.contact-card--primary{background:linear-gradient(180deg,var(--primary), #6f1520);color:#fff;border-radius:8px;box-shadow:0 10px 30px rgba(139,30,45,0.08)}
+.contact-card--primary h2,.contact-card--primary h3{color:#fff}
+.contact-card--primary p,.contact-card--primary li{color:rgba(255,255,255,0.95)}
+.contact-card--primary a{color:rgba(255,255,255,0.98);text-decoration:underline}
+.contact-card--primary .btn{background:rgba(255,255,255,0.95);color:var(--primary);border:none;box-shadow:none}
+.contact-card--primary .btn.primary{background:#fff;color:var(--primary)}
+
+@media (max-width:800px){
+  /* stack contact cards on small screens for better flow */
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* Map block styling to visually connect with contact card */
+.map{margin-top:0.6rem}
+.map .text-bleed{padding-top:0.6rem;padding-bottom:0.6rem}
+.map-embed{margin-top:0.6rem}
+.map-embed iframe{width:100%;height:420px;border:0;border-radius:10px;box-shadow:0 12px 30px rgba(17,17,17,0.08);display:block}
+
+@media (max-width:900px){
+  .map-embed iframe{height:360px}
+}
+@media (max-width:480px){
+  .map-embed iframe{height:240px;border-radius:6px}
+}
 .contact-form label{display:block;margin-bottom:0.6rem;font-size:0.95rem}
 .contact-form input,.contact-form textarea{width:100%;padding:0.6rem;border:1px solid #ddd;border-radius:4px}
 
 .map-embed iframe{width:100%;height:320px;border-radius:6px}
 
-.site-footer{background:#fff;border-top:1px solid #eee;padding:1rem 0;margin-top:2rem}
+.site-footer{background:var(--bg-alt-2);border-top:1px solid var(--band-sep);padding:1rem 0;margin-top:2rem}
 .footer-inner{display:grid;grid-template-columns:1fr auto;align-items:start;gap:1rem}
 
 /* Footer columns on larger screens: logo/contact | quick links | small print */

@@ -131,6 +131,49 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   }catch(e){}
 
+  // --- Parallax effect for background and images (desktop only) ---
+  try{
+    var parallaxItems = [];
+    var mq = window.matchMedia && window.matchMedia('(max-width:800px)');
+
+    function initParallax(){
+      parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(function(el){
+        return {
+          node: el,
+          type: el.getAttribute('data-parallax') || 'img',
+          speed: parseFloat(el.getAttribute('data-parallax-speed')) || 0.2,
+          top: el.getBoundingClientRect().top + window.pageYOffset
+        };
+      });
+      // run one frame to set initial positions
+      updateParallax();
+    }
+
+    var ticking = false;
+    function onScroll(){ if(!ticking){ requestAnimationFrame(function(){ updateParallax(); ticking=false; }); ticking=true; } }
+
+    function updateParallax(){
+      if(mq && mq.matches) return; // disable on small screens
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      parallaxItems.forEach(function(item){
+        var el = item.node; var speed = item.speed; var type = item.type;
+        // compute a translate value relative to element position
+        var offset = (scrollY - item.top) * speed;
+        if(type === 'bg'){
+          // move background position (use px) - inverse sign gives subtle effect
+          el.style.backgroundPosition = 'center ' + Math.round(-offset/2) + 'px';
+        } else {
+          // image or other nodes: translateY
+          el.style.transform = 'translateY(' + Math.round(offset/3) + 'px)';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', function(){ initParallax(); }, {passive:true});
+    initParallax();
+  }catch(e){ /* parallax is progressive enhancement */ }
+
 });
 
 // Expose helper to change hero from other pages (if needed)

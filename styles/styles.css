@@ -360,19 +360,7 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 }
 
 /* Debug banner to show current deployed commit - visible on all pages (non-destructive) */
-/* Mobile / hamburger styles */
-.nav-toggle{display:none;background:transparent;border:none;padding:0.6rem 0.9rem;border-radius:10px;color:var(--text);cursor:pointer;transition:background .12s ease}
-.nav-toggle:hover{background:rgba(0,0,0,0.04)}
-.nav-toggle .hamburger{display:inline-block;width:34px;height:22px;position:relative}
-.nav-toggle .hamburger span{position:absolute;height:2.6px;width:100%;left:0;background:currentColor;border-radius:3px;transition:transform .28s cubic-bezier(.2,.9,.2,1), opacity .18s ease, top .18s ease}
-.nav-toggle .hamburger span:nth-child(1){top:0}
-.nav-toggle .hamburger span:nth-child(2){top:9.5px}
-.nav-toggle .hamburger span:nth-child(3){top:19px}
-.nav-toggle.open .hamburger span:nth-child(1){transform:translateY(9.5px) rotate(45deg)}
-.nav-toggle.open .hamburger span:nth-child(2){opacity:0}
-.nav-toggle.open .hamburger span:nth-child(3){transform:translateY(-9.5px) rotate(-45deg)}
-.nav-toggle .hamburger span{background:currentColor}
-.nav-toggle.open{color:#fff}
+/* Mobile navigation toggle removed — hamburger styles cleaned up */
 
 /* mobile drawer/backdrop */
 .nav-list{transition:transform .32s cubic-bezier(.2,.9,.2,1),opacity .18s ease}
@@ -382,6 +370,5 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 .nav-backdrop.visible{opacity:1;pointer-events:auto}
 
 @media (max-width:800px){
-  .nav-toggle{display:inline-block}
   .nav-list{display:flex;flex-direction:column;background:#fff;position:fixed;right:0;top:0;height:100vh;padding:1.2rem;border-left:1px solid rgba(0,0,0,0.04);border-radius:0;min-width:220px;max-width:320px;width:80vw;box-shadow:0 14px 40px rgba(17,17,17,0.12);z-index:80;transform:translateX(100%)}
 }

@@ -130,6 +130,12 @@ html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-
 .site-footer nav[aria-label="Voettekst navigatie"]{display:flex;flex-direction:column;gap:0.35rem}
 .site-footer p{margin:0}
 
+/* footer columns */
+.footer-col{padding:0.2rem 0}
+.footer-col h4{margin:0 0 0.35rem;font-size:0.95rem;color:var(--text)}
+.site-footer .footer-col p{color:var(--muted);margin:0}
+.site-footer .footer-col a{color:var(--primary);text-decoration:none}
+
 @media (max-width:800px){
   .about-grid,.info-grid{grid-template-columns:1fr}
   .grid-3{grid-template-columns:repeat(2,1fr)}

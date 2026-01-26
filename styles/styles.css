@@ -79,7 +79,10 @@ section:focus{outline:4px solid rgba(139,30,45,0.18);outline-offset:6px}
 .highlights{list-style:circle;margin-top:0.5rem;color:var(--muted)}
 
 .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;align-items:start}
-.grid-3 img{width:100%;height:200px;object-fit:cover;border-radius:8px;image-orientation:from-image}
+.grid-3 img{width:100%;height:200px;object-fit:cover;border-radius:8px}
+.grid-3 img[src*="vlees.jpg"],
+.grid-3 img[src*="meat.jpg"],
+.grid-3 img[src*="kipfilet.jpg"]{transform:rotate(90deg);width:200px;height:200px;margin:0 auto}
 .see-more{text-align:center;margin-top:0.8rem}
 
 /* Card styling for product overviews (no images variant) */
